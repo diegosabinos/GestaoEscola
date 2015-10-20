@@ -6,6 +6,7 @@
 package br.ba.poow.gestaoescolar.mapeamento;
 
 import java.io.Serializable;
+import java.util.Objects;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -89,19 +90,33 @@ public class GesUsuario implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 0;
-        hash += (usuCod != null ? usuCod.hashCode() : 0);
+        int hash = 7;
+        hash = 47 * hash + Objects.hashCode(this.usuCod);
+        hash = 47 * hash + Objects.hashCode(this.usuLogin);
+        hash = 47 * hash + Objects.hashCode(this.usuSenha);
+        hash = 47 * hash + Objects.hashCode(this.funCod);
         return hash;
     }
 
     @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof GesUsuario)) {
+    public boolean equals(Object obj) {
+        if (obj == null) {
             return false;
         }
-        GesUsuario other = (GesUsuario) object;
-        if ((this.usuCod == null && other.usuCod != null) || (this.usuCod != null && !this.usuCod.equals(other.usuCod))) {
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final GesUsuario other = (GesUsuario) obj;
+        if (!Objects.equals(this.usuCod, other.usuCod)) {
+            return false;
+        }
+        if (!Objects.equals(this.usuLogin, other.usuLogin)) {
+            return false;
+        }
+        if (!Objects.equals(this.usuSenha, other.usuSenha)) {
+            return false;
+        }
+        if (!Objects.equals(this.funCod, other.funCod)) {
             return false;
         }
         return true;

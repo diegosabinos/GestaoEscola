@@ -8,6 +8,7 @@ package br.ba.poow.gestaoescolar.mapeamento;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -210,19 +211,73 @@ public class GesPessoa implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 0;
-        hash += (pesCod != null ? pesCod.hashCode() : 0);
+        int hash = 3;
+        hash = 97 * hash + Objects.hashCode(this.pesCod);
+        hash = 97 * hash + Objects.hashCode(this.pesNome);
+        hash = 97 * hash + Objects.hashCode(this.pesCpf);
+        hash = 97 * hash + Objects.hashCode(this.pesRg);
+        hash = 97 * hash + Objects.hashCode(this.pesTipo);
+        hash = 97 * hash + Objects.hashCode(this.pesTelefone);
+        hash = 97 * hash + Objects.hashCode(this.pesCelular);
+        hash = 97 * hash + Objects.hashCode(this.pesDataNascimento);
+        hash = 97 * hash + Objects.hashCode(this.pesEndereco);
+        hash = 97 * hash + Objects.hashCode(this.pesCidade);
+        hash = 97 * hash + Objects.hashCode(this.pesBairro);
+        hash = 97 * hash + Objects.hashCode(this.gesFuncionarioList);
+        hash = 97 * hash + Objects.hashCode(this.gesAluno);
+        hash = 97 * hash + Objects.hashCode(this.gesClienteList);
         return hash;
     }
 
     @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof GesPessoa)) {
+    public boolean equals(Object obj) {
+        if (obj == null) {
             return false;
         }
-        GesPessoa other = (GesPessoa) object;
-        if ((this.pesCod == null && other.pesCod != null) || (this.pesCod != null && !this.pesCod.equals(other.pesCod))) {
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final GesPessoa other = (GesPessoa) obj;
+        if (!Objects.equals(this.pesCod, other.pesCod)) {
+            return false;
+        }
+        if (!Objects.equals(this.pesNome, other.pesNome)) {
+            return false;
+        }
+        if (!Objects.equals(this.pesCpf, other.pesCpf)) {
+            return false;
+        }
+        if (!Objects.equals(this.pesRg, other.pesRg)) {
+            return false;
+        }
+        if (!Objects.equals(this.pesTipo, other.pesTipo)) {
+            return false;
+        }
+        if (!Objects.equals(this.pesTelefone, other.pesTelefone)) {
+            return false;
+        }
+        if (!Objects.equals(this.pesCelular, other.pesCelular)) {
+            return false;
+        }
+        if (!Objects.equals(this.pesDataNascimento, other.pesDataNascimento)) {
+            return false;
+        }
+        if (!Objects.equals(this.pesEndereco, other.pesEndereco)) {
+            return false;
+        }
+        if (!Objects.equals(this.pesCidade, other.pesCidade)) {
+            return false;
+        }
+        if (!Objects.equals(this.pesBairro, other.pesBairro)) {
+            return false;
+        }
+        if (!Objects.equals(this.gesFuncionarioList, other.gesFuncionarioList)) {
+            return false;
+        }
+        if (!Objects.equals(this.gesAluno, other.gesAluno)) {
+            return false;
+        }
+        if (!Objects.equals(this.gesClienteList, other.gesClienteList)) {
             return false;
         }
         return true;

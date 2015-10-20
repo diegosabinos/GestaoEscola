@@ -7,6 +7,7 @@ package br.ba.poow.gestaoescolar.mapeamento;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.Objects;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -123,19 +124,45 @@ public class GesPagamento implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 0;
-        hash += (pagCod != null ? pagCod.hashCode() : 0);
+        int hash = 7;
+        hash = 29 * hash + Objects.hashCode(this.pagCod);
+        hash = 29 * hash + Objects.hashCode(this.pagNumero);
+        hash = 29 * hash + Objects.hashCode(this.pagPlano);
+        hash = 29 * hash + Objects.hashCode(this.pagRegular);
+        hash = 29 * hash + Objects.hashCode(this.pagForma);
+        hash = 29 * hash + Objects.hashCode(this.pesValor);
+        hash = 29 * hash + Objects.hashCode(this.cliCod);
         return hash;
     }
 
     @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof GesPagamento)) {
+    public boolean equals(Object obj) {
+        if (obj == null) {
             return false;
         }
-        GesPagamento other = (GesPagamento) object;
-        if ((this.pagCod == null && other.pagCod != null) || (this.pagCod != null && !this.pagCod.equals(other.pagCod))) {
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final GesPagamento other = (GesPagamento) obj;
+        if (!Objects.equals(this.pagCod, other.pagCod)) {
+            return false;
+        }
+        if (!Objects.equals(this.pagNumero, other.pagNumero)) {
+            return false;
+        }
+        if (!Objects.equals(this.pagPlano, other.pagPlano)) {
+            return false;
+        }
+        if (!Objects.equals(this.pagRegular, other.pagRegular)) {
+            return false;
+        }
+        if (!Objects.equals(this.pagForma, other.pagForma)) {
+            return false;
+        }
+        if (!Objects.equals(this.pesValor, other.pesValor)) {
+            return false;
+        }
+        if (!Objects.equals(this.cliCod, other.cliCod)) {
             return false;
         }
         return true;

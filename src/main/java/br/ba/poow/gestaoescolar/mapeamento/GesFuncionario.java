@@ -8,6 +8,7 @@ package br.ba.poow.gestaoescolar.mapeamento;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -117,23 +118,46 @@ public class GesFuncionario implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 0;
-        hash += (funCod != null ? funCod.hashCode() : 0);
+        int hash = 7;
+        hash = 29 * hash + Objects.hashCode(this.funCod);
+        hash = 29 * hash + Objects.hashCode(this.funFuncao);
+        hash = 29 * hash + Objects.hashCode(this.funDataContratacao);
+        hash = 29 * hash + Objects.hashCode(this.funNumero);
+        hash = 29 * hash + Objects.hashCode(this.funPesCod);
+        hash = 29 * hash + Objects.hashCode(this.gesUsuarioList);
         return hash;
     }
 
     @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof GesFuncionario)) {
+    public boolean equals(Object obj) {
+        if (obj == null) {
             return false;
         }
-        GesFuncionario other = (GesFuncionario) object;
-        if ((this.funCod == null && other.funCod != null) || (this.funCod != null && !this.funCod.equals(other.funCod))) {
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final GesFuncionario other = (GesFuncionario) obj;
+        if (!Objects.equals(this.funCod, other.funCod)) {
+            return false;
+        }
+        if (!Objects.equals(this.funFuncao, other.funFuncao)) {
+            return false;
+        }
+        if (!Objects.equals(this.funDataContratacao, other.funDataContratacao)) {
+            return false;
+        }
+        if (!Objects.equals(this.funNumero, other.funNumero)) {
+            return false;
+        }
+        if (!Objects.equals(this.funPesCod, other.funPesCod)) {
+            return false;
+        }
+        if (!Objects.equals(this.gesUsuarioList, other.gesUsuarioList)) {
             return false;
         }
         return true;
     }
+
 
     @Override
     public String toString() {
