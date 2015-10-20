@@ -7,5 +7,15 @@
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/BD_GESTAOESCOLA</property>
     <property name="hibernate.connection.username">diego.sabino</property>
     <property name="hibernate.connection.password">3F03C0</property>
+    <property name="hibernate.current_session_context_class">thread</property>
+    <property name="hibernate.hbm2ddl.auto">update</property>
+    <property name="hibernate.show_sql">true</property>
+    <property name="hibernate.format_sql">true</property>
+    <mapping class="br.ba.poow.gestaoescolar.mapeamento.GesAluno" file="" jar="" package="" resource=""/>
+    <mapping class="br.ba.poow.gestaoescolar.mapeamento.GesCliente" file="" jar="" package="" resource=""/>
+    <mapping class="br.ba.poow.gestaoescolar.mapeamento.GesFuncionario" file="" jar="" package="" resource=""/>
+    <mapping class="br.ba.poow.gestaoescolar.mapeamento.GesPagamento" file="" jar="" package="" resource=""/>
+    <mapping class="br.ba.poow.gestaoescolar.mapeamento.GesPessoa" file="" jar="" package="" resource=""/>
+    <mapping class="br.ba.poow.gestaoescolar.mapeamento.GesUsuario" file="" jar="" package="" resource=""/>
   </session-factory>
 </hibernate-configuration>
