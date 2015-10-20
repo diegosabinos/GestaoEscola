@@ -20,5 +20,4 @@ public class Teste {
         this.numero = numero;
     }
     
-    
 }

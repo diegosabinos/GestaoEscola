@@ -7,6 +7,7 @@ package br.ba.poow.gestaoescolar.mapeamento;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Objects;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -113,23 +114,46 @@ public class GesAluno implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 0;
-        hash += (aluCod != null ? aluCod.hashCode() : 0);
+        int hash = 7;
+        hash = 19 * hash + Objects.hashCode(this.aluCod);
+        hash = 19 * hash + Objects.hashCode(this.aluSerie);
+        hash = 19 * hash + Objects.hashCode(this.aluIdade);
+        hash = 19 * hash + Objects.hashCode(this.aluNumero);
+        hash = 19 * hash + Objects.hashCode(this.pesCod);
+        hash = 19 * hash + Objects.hashCode(this.gesClienteList);
         return hash;
     }
 
     @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof GesAluno)) {
+    public boolean equals(Object obj) {
+        if (obj == null) {
             return false;
         }
-        GesAluno other = (GesAluno) object;
-        if ((this.aluCod == null && other.aluCod != null) || (this.aluCod != null && !this.aluCod.equals(other.aluCod))) {
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final GesAluno other = (GesAluno) obj;
+        if (!Objects.equals(this.aluCod, other.aluCod)) {
+            return false;
+        }
+        if (!Objects.equals(this.aluSerie, other.aluSerie)) {
+            return false;
+        }
+        if (!Objects.equals(this.aluIdade, other.aluIdade)) {
+            return false;
+        }
+        if (!Objects.equals(this.aluNumero, other.aluNumero)) {
+            return false;
+        }
+        if (!Objects.equals(this.pesCod, other.pesCod)) {
+            return false;
+        }
+        if (!Objects.equals(this.gesClienteList, other.gesClienteList)) {
             return false;
         }
         return true;
     }
+
 
     @Override
     public String toString() {
