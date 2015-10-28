@@ -5,10 +5,14 @@
  */
 package br.ba.poow.gestaoescolar.listener;
 
+import org.hibernate.Session;
+
 /**
  *
  * @author Diego Sabino
  */
-public class AlunoDAOListener {
+public interface AlunoDAOListener {
+
+    void setSessao(Session sessao);
     
 }

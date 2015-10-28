@@ -7,9 +7,12 @@ package br.ba.poow.gestaoescolar.mapeamento;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Objects;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -35,6 +38,7 @@ import javax.xml.bind.annotation.XmlTransient;
 public class GesCliente implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @NotNull
     @Column(name = "CLI_COD")
@@ -100,19 +104,37 @@ public class GesCliente implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 0;
-        hash += (cliCod != null ? cliCod.hashCode() : 0);
+        int hash = 5;
+        hash = 53 * hash + Objects.hashCode(this.cliCod);
+        hash = 53 * hash + Objects.hashCode(this.cliNumero);
+        hash = 53 * hash + Objects.hashCode(this.gesPagamentoList);
+        hash = 53 * hash + Objects.hashCode(this.cliPesCod);
+        hash = 53 * hash + Objects.hashCode(this.cliAluCod);
         return hash;
     }
 
     @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof GesCliente)) {
+    public boolean equals(Object obj) {
+        if (obj == null) {
             return false;
         }
-        GesCliente other = (GesCliente) object;
-        if ((this.cliCod == null && other.cliCod != null) || (this.cliCod != null && !this.cliCod.equals(other.cliCod))) {
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final GesCliente other = (GesCliente) obj;
+        if (!Objects.equals(this.cliCod, other.cliCod)) {
+            return false;
+        }
+        if (!Objects.equals(this.cliNumero, other.cliNumero)) {
+            return false;
+        }
+        if (!Objects.equals(this.gesPagamentoList, other.gesPagamentoList)) {
+            return false;
+        }
+        if (!Objects.equals(this.cliPesCod, other.cliPesCod)) {
+            return false;
+        }
+        if (!Objects.equals(this.cliAluCod, other.cliAluCod)) {
             return false;
         }
         return true;

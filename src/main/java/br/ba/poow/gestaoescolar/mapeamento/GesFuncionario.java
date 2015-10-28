@@ -12,6 +12,8 @@ import java.util.Objects;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -42,6 +44,7 @@ import javax.xml.bind.annotation.XmlTransient;
 public class GesFuncionario implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @NotNull
     @Column(name = "FUN_COD")
@@ -50,7 +53,7 @@ public class GesFuncionario implements Serializable {
     @Column(name = "FUN_FUNCAO")
     private String funFuncao;
     @Column(name = "FUN_DATA_CONTRATACAO")
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date funDataContratacao;
     @Column(name = "FUN_NUMERO")
     private Integer funNumero;
