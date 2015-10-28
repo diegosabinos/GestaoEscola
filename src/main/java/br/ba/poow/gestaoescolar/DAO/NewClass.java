@@ -11,6 +11,7 @@ package br.ba.poow.gestaoescolar.DAO;
  */
 public class NewClass {
     private int sabino;
+        private int sabinoDiscarado;
 
     public int getSabino() {
         return sabino;
@@ -19,6 +20,14 @@ public class NewClass {
     public void setSabino(int sabino) {
         this.sabino = sabino;
     }
+
+    public int getSabinoDiscarado() {
+        return sabinoDiscarado;
+    }
+
+    public void setSabinoDiscarado(int sabinoDiscarado) {
+        this.sabinoDiscarado = sabinoDiscarado;
+    }
     
-    
+       
 }
